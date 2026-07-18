@@ -204,7 +204,7 @@ class Factory implements IFactory
      * @param AsnParser $defaultParser
      * @return AsnServer[]
      */
-    public function createAsnSevers($configs = null, AsnParser $defaultParser): array
+    public function createAsnSevers($configs = null, $defaultParser = null): array
     {
         $configs = is_array($configs) ? $configs : Config::load("module.asn.servers");
         $defaultParser = $defaultParser ?: $this->createAsnParser();
