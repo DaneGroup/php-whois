@@ -116,7 +116,7 @@ class TldModule extends Module
      * @throws ConnectionException
      * @throws WhoisException
      */
-    public function lookupDomain($domain, TldServer $server)
+    public function lookupDomain($domain, $server = null)
     {
         $servers = $server ? [$server] : $this->matchServers($domain);
         list ($response) = $this->loadDomainData($domain, $servers);
@@ -131,7 +131,7 @@ class TldModule extends Module
      * @throws ConnectionException
      * @throws WhoisException
      */
-    public function loadDomainInfo($domain, TldServer $server)
+    public function loadDomainInfo($domain, $server = null)
     {
         $servers = $server ? [$server] : $this->matchServers($domain);
         list (, $info) = $this->loadDomainData($domain, $servers);
